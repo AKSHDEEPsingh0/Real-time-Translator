@@ -3,6 +3,10 @@ This is a web-based, real-time voice translator built with Python and the Stream
 
 The application is powered by a combination of powerful Python libraries for speech recognition, translation, and text-to-speech conversion.
 
+
+
+
+
 🚀 Features
 Voice-to-Voice Translation: Speak in one language and hear the translation spoken back in another.
 
@@ -11,6 +15,8 @@ Text-to-Text Translation: A separate section allows for direct text input and tr
 Multilingual Support: Supports a wide range of languages, including English, Spanish, French, German, Japanese, Hindi, Mandarin, Tamil, Telugu, Marathi, Bengali, and Arabic.
 
 User-Friendly Interface: A simple and intuitive web interface for a seamless user experience.
+
+
 
 🛠️ Setup and Installation
 To run this application locally, you need to have Python installed. It is highly recommended to use a virtual environment to manage dependencies.
@@ -40,6 +46,8 @@ Bash
 
 sudo apt-get update
 sudo apt-get install build-essential libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
+
+
 ▶️ How to Run the App
 Once all dependencies are installed, you can launch the Streamlit application from your terminal:
 
@@ -47,6 +55,8 @@ Bash
 
 streamlit run app.py
 This will start a local web server and open a new browser tab with the translator app.
+
+
 
 📚 Libraries Used
 Streamlit: For creating the web application interface.
