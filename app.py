@@ -2,7 +2,6 @@ import streamlit as st
 import speech_recognition as sr
 from deep_translator import GoogleTranslator
 from gtts import gTTS
-import os
 import io
 
 # Define a dictionary of supported languages
@@ -108,12 +107,8 @@ if "listening" not in st.session_state:
 def start_listening():
     st.session_state.listening = True
 
-
-col1, col2 = st.columns(2)
-with col1:
-    start_button = st.button("Start Listening", on_click=start_listening)
-with col2:
-    stop_button = st.button("Stop Listening", on_click=stop_listening)
+# Single button to start the process
+st.button("Start Listening", on_click=start_listening)
 
 status_placeholder = st.empty()
 user_text_placeholder = st.empty()
