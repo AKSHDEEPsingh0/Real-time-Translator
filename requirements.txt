@@ -2,4 +2,8 @@ streamlit
 speechrecognition
 deep-translator
 gTTS
+firebase-admin
 PyAudio
+pytesseract
+Pillow
+textblob

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voice-translator-deployment
+spec:
+  replicas: 2 # You can change this to scale your app
+  selector:
+    matchLabels:
+      app: voice-translator
+  template:
+    metadata:
+      labels:
+        app: voice-translator
+    spec:
+      containers:
+      - name: voice-translator
+        image: akshdeepvoiceacr.azurecr.io/voice-translator:v1 # Replace with your image registry
+        ports:
+        - containerPort: 8501
