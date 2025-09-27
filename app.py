@@ -26,7 +26,7 @@ LANGUAGES = {
 def speak_translated_text(text, lang_code):
     """Converts the translated text to speech and returns it as a bytes object."""
     if not text:
-        return
+        return None
     try:
         tts = gTTS(text=text, lang=lang_code, slow=False)
         audio_stream = io.BytesIO()
@@ -52,10 +52,10 @@ st.markdown(
         background-position: center;
     }
     .st-emotion-cache-183-f-e8b2g9c{
-      background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.7);
     }
     .st-emotion-cache-163t72c{
-      background-color: transparent;
+        background-color: transparent;
     }
     .main-title {
         text-align: center;
@@ -117,10 +117,6 @@ if "messages" not in st.session_state:
 if "audio_bytes" not in st.session_state:
     st.session_state.audio_bytes = None
 
-<<<<<<< HEAD
-# Single button to start the process
-st.button("Start Listening", on_click=start_listening)
-=======
 # --- Display chat messages from history on app rerun ---
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
@@ -130,7 +126,6 @@ for message in st.session_state.messages:
 if st.session_state.audio_bytes:
     st.audio(st.session_state.audio_bytes, format='audio/mp3', start_time=0)
     st.session_state.audio_bytes = None # Clear after playback
->>>>>>> 88ea64a (Updated app with new features)
 
 # --- Voice and Text Input ---
 status_placeholder = st.empty()
@@ -147,7 +142,6 @@ if st.button("Start Real-time Translation"):
             r.pause_threshold = 5 # Changed to 5 seconds
             
             try:
-                # The recognize_google method now uses the audio stream for continuous recognition
                 audio_data = r.listen(source, timeout=5) #Removed phrase_time_limit
                 
                 status_placeholder.text("Speech captured. Recognizing...")
@@ -176,8 +170,6 @@ if st.button("Start Real-time Translation"):
 
                 # --- Text-to-Speech and Playback ---
                 st.session_state.audio_bytes = speak_translated_text(translated_text, target_lang_code)
-                
-                status_placeholder.text("Translation spoken aloud.")
                 st.rerun()
 
             except sr.WaitTimeoutError:
